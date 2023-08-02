@@ -44,6 +44,9 @@ ______________________________________________________________________
 
 ## 🥳 🚀 What's New [🔝](#-table-of-contents)
 
+- Jul. 2023:
+  - Support 17-keypoint Body models trained on Human-Art.
+  - Support 133-keypoint WholeBody models trained on combined datasets.
 - Jun. 2023:
   - Release 26-keypoint Body models trained on combined datasets.
 - May. 2023:
@@ -200,6 +203,21 @@ Feel free to join our community group for more help:
 
 </details>
 
+<details open>
+<summary><b>Human-Art</b></summary>
+
+- RTMPose for Human-Centric Artificial Scenes is supported by  [Human-Art](https://github.com/IDEA-Research/HumanArt)
+- <img src="https://github.com/open-mmlab/mmpose/assets/13503330/685bc610-dd9e-4e6f-9c41-dbc8220584f4" height="300px">
+
+|                                     Config                                      | Input Size | AP<sup><br>(Human-Art GT) | Params<sup><br>(M) | FLOPS<sup><br>(G) | ORT-Latency<sup><br>(ms)<sup><br>(i7-11700) | TRT-FP16-Latency<sup><br>(ms)<sup><br>(GTX 1660Ti) | ncnn-FP16-Latency<sup><br>(ms)<sup><br>(Snapdragon 865) |                                                             Download                                                              |
+| :-----------------------------------------------------------------------------: | :--------: | :-----------------------: | :----------------: | :---------------: | :-----------------------------------------: | :------------------------------------------------: | :-----------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------: |
+| [RTMPose-t\*](./rtmpose/body_2d_keypoint/rtmpose-t_8xb256-420e_coco-256x192.py) |  256x192   |           65.5            |        3.34        |       0.36        |                    3.20                     |                        1.06                        |                          9.02                           | [Model](https://download.openmmlab.com/mmpose/v1/projects/rtmposev1/rtmpose-t_8xb256-420e_humanart-256x192-60b68c98_20230612.pth) |
+| [RTMPose-s\*](./rtmpose/body_2d_keypoint/rtmpose-s_8xb256-420e_coco-256x192.py) |  256x192   |           69.8            |        5.47        |       0.68        |                    4.48                     |                        1.39                        |                          13.89                          | [Model](https://download.openmmlab.com/mmpose/v1/projects/rtmposev1/rtmpose-s_8xb256-420e_humanart-256x192-5a3ac943_20230611.pth) |
+| [RTMPose-m\*](./rtmpose/body_2d_keypoint/rtmpose-m_8xb256-420e_coco-256x192.py) |  256x192   |           72.8            |       13.59        |       1.93        |                    11.06                    |                        2.29                        |                          26.44                          | [Model](https://download.openmmlab.com/mmpose/v1/projects/rtmposev1/rtmpose-m_8xb256-420e_humanart-256x192-8430627b_20230611.pth) |
+| [RTMPose-l\*](./rtmpose/body_2d_keypoint/rtmpose-l_8xb256-420e_coco-256x192.py) |  256x192   |           75.3            |       27.66        |       4.16        |                    18.85                    |                        3.46                        |                          45.37                          | [Model](https://download.openmmlab.com/mmpose/v1/projects/rtmposev1/rtmpose-l_8xb256-420e_humanart-256x192-389f2cb0_20230611.pth) |
+
+</details>
+
 #### 26 Keypoints
 
 - Keypoints are defined as [Halpe26](https://github.com/Fang-Haoshu/Halpe-FullBody/). For details please refer to the [meta info](/configs/_base_/datasets/halpe26.py).
@@ -233,12 +251,35 @@ For more details, please refer to [GroupFisher Pruning for RTMPose](./rtmpose/pr
 - Keypoints are defined as [COCO-WholeBody](https://github.com/jin-s13/COCO-WholeBody/). For details please refer to the [meta info](/configs/_base_/datasets/coco_wholebody.py).
 - <img src="https://user-images.githubusercontent.com/100993824/227770977-c8f00355-c43a-467e-8444-d307789cf4b2.png" height="300px">
 
+<details open>
+<summary><b>COCO-WholeBody</b></summary>
+
 | Config                          | Input Size | Whole AP | Whole AR | FLOPS<sup><br>(G) | ORT-Latency<sup><br>(ms)<sup><br>(i7-11700) | TRT-FP16-Latency<sup><br>(ms)<sup><br>(GTX 1660Ti) |             Download              |
 | :------------------------------ | :--------: | :------: | :------: | :---------------: | :-----------------------------------------: | :------------------------------------------------: | :-------------------------------: |
 | [RTMPose-m](./rtmpose/wholebody_2d_keypoint/rtmpose-m_8xb64-270e_coco-wholebody-256x192.py) |  256x192   |   58.2   |   67.4   |       2.22        |                    13.50                    |                        4.00                        | [Model](https://download.openmmlab.com/mmpose/v1/projects/rtmposev1/rtmpose-m_simcc-coco-wholebody_pt-aic-coco_270e-256x192-cd5e845c_20230123.pth) |
 | [RTMPose-l](./rtmpose/wholebody_2d_keypoint/rtmpose-l_8xb64-270e_coco-wholebody-256x192.py) |  256x192   |   61.1   |   70.0   |       4.52        |                    23.41                    |                        5.67                        | [Model](https://download.openmmlab.com/mmpose/v1/projects/rtmposev1/rtmpose-l_simcc-coco-wholebody_pt-aic-coco_270e-256x192-6f206314_20230124.pth) |
 | [RTMPose-l](./rtmpose/wholebody_2d_keypoint/rtmpose-l_8xb32-270e_coco-wholebody-384x288.py) |  384x288   |   64.8   |   73.0   |       10.07       |                    44.58                    |                        7.68                        | [Model](https://download.openmmlab.com/mmpose/v1/projects/rtmposev1/rtmpose-l_simcc-coco-wholebody_pt-aic-coco_270e-384x288-eaeb96c8_20230125.pth) |
 | [RTMPose-x](./rtmpose/wholebody_2d_keypoint/rtmpose-x_8xb32-270e_coco-wholebody-384x288.py) |  384x288   |   65.3   |   73.3   |       18.1        |                      -                      |                         -                          | [Model](https://download.openmmlab.com/mmpose/v1/projects/rtmposev1/rtmpose-x_simcc-coco-wholebody_pt-body7_270e-384x288-401dfc90_20230629.pth) |
+
+</details>
+
+<details open>
+<summary><b>DWPose</b></summary>
+
+- DWPose Models are supported by [DWPose](https://github.com/IDEA-Research/DWPose)
+- Models are trained and distilled on:
+  - [COCO-WholeBody](https://github.com/jin-s13/COCO-WholeBody/)
+  - [UBody](https://github.com/IDEA-Research/OSX)
+
+| Config                          | Input Size | Whole AP | Whole AR | FLOPS<sup><br>(G) | ORT-Latency<sup><br>(ms)<sup><br>(i7-11700) | TRT-FP16-Latency<sup><br>(ms)<sup><br>(GTX 1660Ti) |             Download              |
+| :------------------------------ | :--------: | :------: | :------: | :---------------: | :-----------------------------------------: | :------------------------------------------------: | :-------------------------------: |
+| [RTMPose-t](./rtmpose/wholebody_2d_keypoint/rtmpose-t_8xb64-270e_coco-wholebody-256x192.py) |  256x192   |   48.5   |   58.4   |       2.22        |                      -                      |                         -                          | [Model](https://download.openmmlab.com/mmpose/v1/projects/rtmposev1/rtmpose-t_simcc-ucoco_dw-ucoco_270e-256x192-dcf277bf_20230728.pth) |
+| [RTMPose-s](./rtmpose/wholebody_2d_keypoint/rtmpose-s_8xb64-270e_coco-wholebody-256x192.py) |  256x192   |   53.8   |   63.2   |       4.52        |                      -                      |                         -                          | [Model](https://download.openmmlab.com/mmpose/v1/projects/rtmposev1/rtmpose-s_simcc-ucoco_dw-ucoco_270e-256x192-3fd922c8_20230728.pth) |
+| [RTMPose-m](./rtmpose/wholebody_2d_keypoint/rtmpose-m_8xb64-270e_coco-wholebody-256x192.py) |  256x192   |   60.6   |   69.5   |       2.22        |                    13.50                    |                        4.00                        | [Model](https://download.openmmlab.com/mmpose/v1/projects/rtmposev1/rtmpose-m_simcc-ucoco_dw-ucoco_270e-256x192-c8b76419_20230728.pth) |
+| [RTMPose-l](./rtmpose/wholebody_2d_keypoint/rtmpose-l_8xb64-270e_coco-wholebody-256x192.py) |  256x192   |   63.1   |   71.7   |       4.52        |                    23.41                    |                        5.67                        | [Model](https://download.openmmlab.com/mmpose/v1/projects/rtmposev1/rtmpose-l_simcc-ucoco_dw-ucoco_270e-256x192-4d6dfc62_20230728.pth) |
+| [RTMPose-l](./rtmpose/wholebody_2d_keypoint/rtmpose-l_8xb32-270e_coco-wholebody-384x288.py) |  384x288   |   66.5   |   74.3   |       10.07       |                    44.58                    |                        7.68                        | [Model](https://download.openmmlab.com/mmpose/v1/projects/rtmposev1/rtmpose-l_simcc-ucoco_dw-ucoco_270e-384x288-2438fd99_20230728.pth) |
+
+</details>
 
 ### Animal 2d (17 Keypoints)
 
@@ -689,9 +730,10 @@ Before starting the deployment, please make sure you install MMPose and MMDeploy
 
 Depending on the deployment backend, some backends require compilation of custom operators, so please refer to the corresponding document to ensure the environment is built correctly according to your needs:
 
-- [ONNX RUNTIME SUPPORT](https://mmdeploy.readthedocs.io/en/latest/05-supported-backends/onnxruntime.html)
-- [TENSORRT SUPPORT](https://mmdeploy.readthedocs.io/en/latest/05-supported-backends/tensorrt.html)
-- [OPENVINO SUPPORT](https://mmdeploy.readthedocs.io/en/latest/05-supported-backends/openvino.html)
+- [ONNX](https://mmdeploy.readthedocs.io/en/latest/05-supported-backends/onnxruntime.html)
+- [TensorRT](https://mmdeploy.readthedocs.io/en/latest/05-supported-backends/tensorrt.html)
+- [OpenVINO](https://mmdeploy.readthedocs.io/en/latest/05-supported-backends/openvino.html)
+- [TorchScript](https://mmdeploy.readthedocs.io/en/latest/05-supported-backends/torchscript.html)
 - [More](https://github.com/open-mmlab/mmdeploy/tree/main/docs/en/05-supported-backends)
 
 ### 🛠️ Step2. Convert Model
@@ -702,12 +744,20 @@ The detailed model conversion tutorial please refer to the [MMDeploy document](h
 
 Here we take converting RTMDet-nano and RTMPose-m to ONNX/TensorRT as an example.
 
-- If you only want to use ONNX, please use:
+- ONNX
   - [`detection_onnxruntime_static.py`](https://github.com/open-mmlab/mmdeploy/blob/main/configs/mmdet/detection/detection_onnxruntime_static.py) for RTMDet.
   - [`pose-detection_simcc_onnxruntime_dynamic.py`](https://github.com/open-mmlab/mmdeploy/blob/main/configs/mmpose/pose-detection_simcc_onnxruntime_dynamic.py) for RTMPose.
-- If you want to use TensorRT, please use：
+- TensorRT
   - [`detection_tensorrt_static-320x320.py`](https://github.com/open-mmlab/mmdeploy/blob/main/configs/mmdet/detection/detection_tensorrt_static-320x320.py) for RTMDet.
   - [`pose-detection_simcc_tensorrt_dynamic-256x192.py`](https://github.com/open-mmlab/mmdeploy/blob/main/configs/mmpose/pose-detection_simcc_tensorrt_dynamic-256x192.py) for RTMPose.
+- More
+  |   Backend   |                                                                                Config                                                                                |
+  | :---------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+  |  ncnn-fp16  | [pose-detection_simcc_ncnn-fp16_static-256x192.py](https://github.com/open-mmlab/mmdeploy/blob/main/configs/mmpose/pose-detection_simcc_ncnn-fp16_static-256x192.py) |
+  |   CoreML    |    [pose-detection_simcc_coreml_static-256x192.py](https://github.com/open-mmlab/mmdeploy/blob/main/configs/mmpose/pose-detection_simcc_coreml_static-256x192.py)    |
+  |  OpenVINO   |  [pose-detection_simcc_openvino_static-256x192.py](https://github.com/open-mmlab/mmdeploy/blob/main/configs/mmpose/pose-detection_simcc_openvino_static-256x192.py)  |
+  |    RKNN     | [pose-detection_simcc_rknn-fp16_static-256x192.py](https://github.com/open-mmlab/mmdeploy/blob/main/configs/mmpose/pose-detection_simcc_rknn-fp16_static-256x192.py) |
+  | TorchScript |                    [pose-detection_torchscript.py](https://github.com/open-mmlab/mmdeploy/blob/main/configs/mmpose/pose-detection_torchscript.py)                    |
 
 If you want to customize the settings in the deployment config for your requirements, please refer to [MMDeploy config tutorial](https://mmdeploy.readthedocs.io/en/latest/02-how-to-run/write_config.html).
 
